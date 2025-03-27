@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{ 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body{
+  position: relative;
+}
+
+.app{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.app h2{
+  font-size: 36px;
+  text-align: center;
+  margin-top: 90px;
+  font-weight: 800;
+}
+
+.app .cards{
+  padding: 30px;
+  margin-bottom: 60px;
+  display: flex;
+  gap: 16px;
+  overflow-x: scroll;
+}
+
+.app .cards::-webkit-scrollbar{
+  display: none;
+}

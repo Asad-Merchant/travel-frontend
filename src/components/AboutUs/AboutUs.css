@@ -1,0 +1,129 @@
+.about-us{
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.about-us-left{
+    width: 50%;
+    font-family: cursive;
+}
+
+.about-us-left p{
+    font-size: 26px;
+}
+
+.about-us-left p span{
+    color: grey;
+}
+
+.about-us-right{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.about-us-right .vertical-line{
+    width: 2px;
+    height: 24px;
+    background-color: grey;
+}
+
+.about-us-right .customers p, .about-us-right .customers p span{
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+}
+
+.customers .count{
+    font-size: 24px;
+}
+
+.about-us-right .customers span{
+    font-size: 14px;
+    color: gray;
+    font-weight: 300;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .about-us {
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .about-us-left,
+    .about-us-right {
+        width: 90%;
+    }
+
+    .about-us-left p {
+        font-size: 22px;
+    }
+
+    .about-us-right {
+        flex-direction: row;
+        gap: 25px;
+    }
+
+    .about-us-right .vertical-line {
+        width: 2px;
+        height: 24px;
+    }
+
+    .about-us-right .customers p,
+    .about-us-right .customers .count {
+        font-size: 22px;
+    }
+
+    .about-us-right .customers span {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 786px) {
+    .about-us {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .about-us-left,
+    .about-us-right {
+        width: 90%;
+    }
+
+    .about-us-left p {
+        font-size: 18px;
+    }
+
+    .about-us-right {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .about-us-right .customers p,
+    .about-us-right .customers .count {
+        font-size: 18px;
+    }
+
+    .about-us-right .customers span {
+        font-size: 12px;
+    }
+
+    .about-us-right .vertical-line {
+        height: 2px;
+        width: 40%;
+    }
+}
+
+
+
+

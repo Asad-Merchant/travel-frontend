@@ -1,0 +1,110 @@
+.service{
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.service .service-title h1{
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.service .service-title p{
+    color: grey;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.service-flex{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.service-flex .service-container{
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.service-container img{
+    aspect-ratio: 25/15;
+    width: 45%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.service-container ul{
+    list-style-type: square;
+}
+
+.service-container li{
+    color: grey;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.service-container .service-location{
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    color: white;
+    font-weight: 600;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 5px 10px;
+    font-size: 12px;
+    border: 1px solid white;
+    border-radius: 20px;
+    margin-bottom: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .service .service-title h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .service .service-title p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .service-flex {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .service-flex .service-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .service-container img {
+        width: 100%; /* Not full 100%, gives padding from edges */
+        max-width: 300px; /* Prevent it from getting too wide */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover;
+    }
+
+    .service-container ul {
+        padding-left: 10px;
+    }
+}
+
+/* 💻 Larger screens (like desktop) */
+@media screen and (min-width: 1025px) {
+    .service-flex .service-container {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+}

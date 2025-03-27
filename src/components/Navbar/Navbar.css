@@ -1,0 +1,60 @@
+.navbar{
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding: 20px 60px;
+}
+
+.scrolled {
+    position: fixed; /* Makes it sticky after scrolling */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background after scroll */
+    padding: 20px 60px;
+    z-index: 100;
+    backdrop-filter: blur(10px); /* Adds a blur effect */
+    transition: all ease 1s;
+}
+
+.navbar .navbar-title{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.navbar .navbar-list{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 16px;
+}
+
+.navbar .navbar-list li{
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 786px) {
+
+    .navbar .navbar-title {
+        font-size: 20px;
+    }
+
+    .navbar .navbar-list {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .navbar .navbar-title {
+        font-size: 18px;
+    }
+
+    .navbar .navbar-list {
+        display: none;
+    }
+}
