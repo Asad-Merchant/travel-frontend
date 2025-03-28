@@ -1,0 +1,82 @@
+.pay-failure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh; /* Center content vertically */
+    background-color: #fff0f0; /* Light red background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.pay-failure h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #d32f2f; /* Dark red */
+    margin-top: 10px;
+}
+
+.pay-failure p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 8px;
+}
+
+.pay-failure p:last-child {
+    font-weight: 600;
+    color: #333;
+    background: rgba(211, 47, 47, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Retry Button */
+.pay-failure button {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.pay-failure button:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+.pay-failure p span {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .pay-failure {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .pay-failure h2 {
+        font-size: 22px;
+    }
+
+    .pay-failure p {
+        font-size: 14px;
+    }
+
+    .pay-failure button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}

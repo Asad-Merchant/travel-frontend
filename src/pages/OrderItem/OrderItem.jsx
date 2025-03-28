@@ -1,13 +1,14 @@
 import React from 'react'
 import './OrderItem.css'
 import { useEffect } from 'react'
-import { data, useLocation } from 'react-router-dom'
+import { data, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
-import { FaCalendarAlt, FaSun, FaMoon } from "react-icons/fa";
+import { FaCalendarAlt, FaSun, FaMoon, FaTicketAlt } from "react-icons/fa";
 import { toast } from 'react-toastify'
 import Razorpay from 'razorpay'
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 const OrderItem = ({setListItem}) => {
 
@@ -23,6 +24,7 @@ const OrderItem = ({setListItem}) => {
     const data = location.state?.item 
     const [isOtpSend, setIsOtpSend] = useState(false)
     const [otp, setOtp] = useState('')
+    const navigate = useNavigate()
     // console.log(data);
     // console.log(userData);
     
@@ -92,8 +94,10 @@ const OrderItem = ({setListItem}) => {
                         const verifyData = await verifyResponse.json();
                         if(verifyData.success){
                             toast.success(verifyData.msg)
+                            navigate('/payment-success', {state: {orderId: response.razorpay_order_id}})
                         } else{
                             toast.error(verifyData.msg)
+                            navigate('/payment-failure')
                         }
                         
                     },
@@ -109,11 +113,11 @@ const OrderItem = ({setListItem}) => {
 
             } else{
                 toast.error("Some error during payment")
+                navigate('/')
             }
             
         } catch (error) {
-            console.log(error);
-            
+            console.log(error);   
         }
     } 
 
@@ -184,10 +188,15 @@ const OrderItem = ({setListItem}) => {
                     <div className="otp-input">
                         <input type="text" value={otp} required onChange={(e)=>setOtp(e.target.value)}/>
                     </div>
-                    <button onClick={handleOTPClick}>Send OTP</button>
+                    <button onClick={handleOTPClick}>Proceed to pay</button>
                 </div>
             :
                 <form onSubmit={handleSubmit}>
+                    <div className="info">
+                        <div className="line"></div>
+                        <AiOutlineExclamationCircle color='red'/>
+                        <p>You will receive OTP on your eamil address</p>
+                    </div>
                     <div className="item">
                         <p>Full Name: </p>
                         <input value={userData.name} name='name' type="text" required onChange={handleChange}/>
@@ -209,7 +218,7 @@ const OrderItem = ({setListItem}) => {
                         </div>
                     </div>
                     <span>Total Amount: <FaIndianRupeeSign size={10} />{Number(userData.noOfTicketsBooked)*data.currPrice}</span>
-                    <button type='submit'>Proceed to pay</button>
+                    <button type='submit'>Send OTP</button>
                 </form>
             }
         </div>
@@ -220,7 +229,7 @@ const OrderItem = ({setListItem}) => {
             <p><FaCalendarAlt /> Date: {data.date}</p>
             <p><FaSun /> No. of days: {data.noDay}</p>
             <p><FaMoon /> No. of nights: {data.noNight}</p>
-            <p>Available Tickets: {data.totalTickets - data.ticketsBooked}</p>
+            <p><FaTicketAlt /> Available Tickets: {data.totalTickets - data.ticketsBooked}</p>
         </div>
     </div>
   )

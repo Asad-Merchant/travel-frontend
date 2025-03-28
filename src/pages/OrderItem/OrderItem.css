@@ -1,121 +1,187 @@
-.order-item{
-    margin-top: 100px ;
+/* Order Item Container */
+.order-item {
+    margin-top: 80px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Order Form Styling */
+.order-item-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    max-width: 500px;
+    min-width: 320px;
+}
+
+.item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.order-item-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    transition: border 0.3s ease;
+}
+
+.order-item-form input:focus {
+    border: 1px solid #25b09b;
+}
+
+.order-item-form span {
+    font-size: 12px;
+    color: grey;
+}
+
+.order-item-form form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #25b09b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.order-item-form form button:hover {
+    background-color: #1e8a7a;
+    transform: scale(1.03);
+}
+
+.order-item-form form .info{
     display: flex;
     align-items: center;
-}
-
-.order-item-form{
-    margin: 40px 60px 100px;
-    color: grey;
-    width: 50%;
-}
-
-.item{
-    margin-bottom: 20px;
-    display: flex;
     gap: 10px;
+    margin: 10px 20px 28px;
+    text-align: center;
 }
 
-.item-flex, .item-flex-2{
-    display: flex;
-    gap: 10px;
+.order-item-form form .info .line{
+    width: 2px;
+    height: 20px;
+    background-color: red;
 }
 
-.item-flex-2{
-    margin-left: 20px;
-}
-
-.order-item-form input{
-    border: 1px solid black;
-    outline: none;
-    padding: 5px 10px;
-}
-
-.order-item-form span{
-    display: block;
-    font-size: 12px;
-}
-
-
-.order-item-form form button{
-    margin-top: 14px;
-    color: white;
-    background-color: black;
-    outline: none;
-    border: none;
-    padding: 5px 10px;
+.order-item-form form .info p{
     font-size: 14px;
-    transition: all ease 0.3s;
+    color: rgb(101, 101, 101);
 }
 
-.order-item-form button:hover{
-    transform: scale(1.05);
-    cursor: pointer;
+
+/* Order Details Section */
+.order-item-detail {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    max-width: 500px;
+    min-width: 320px;
 }
 
-.order-item-detail{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    padding: 40px;
-    gap: 8px;
-    width: 50%;
-}
-
-.order-item-detail img{
-    width: 25vw;
+.order-item-detail img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .order-item-detail p {
+    font-size: 16px;
     display: flex;
     align-items: center;
     gap: 10px;
+    color: #555;
 }
 
 .order-item-detail p svg {
     color: #25b09b;
-    font-size: 16px;
+    font-size: 18px;
 }
 
-.otpCard{
+/* OTP Card */
+.otpCard {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
+    align-items: center;
     text-align: center;
     width: 100%;
-    max-width: 400px; /* Optional: Adjust as needed */
-    margin: auto; /* Centers the card */
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+    padding: 25px;
+    background: #fff;
     border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.otpCard p{
+.otpCard p {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #333;
 }
 
-.otp-input input{
-    width: 100%;
-    padding: 10px;
+.otp-input input {
+    width: 80%;
+    padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
     text-align: center;
+    transition: border 0.3s ease;
+}
+
+.otp-input input:focus {
+    border: 1px solid #25b09b;
 }
 
 .otpCard button {
     width: 100%;
-    padding: 10px;
-    background-color: black; /* Change to preferred color */
+    padding: 12px;
+    background-color: #25b09b;
     color: white;
     font-size: 16px;
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
     transition: 0.3s ease-in-out;
+}
+
+.otpCard button:hover {
+    background-color: #1e8a7a;
+    transform: scale(1.03);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-item {
+        flex-direction: column;
+        align-items: center;
+    }
+    .order-item-form form .info p{
+        font-size: 12px;
+    }
+
+    .order-item-form,
+    .order-item-detail {
+        width: 90%;
+    }
 }
