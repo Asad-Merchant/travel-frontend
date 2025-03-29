@@ -1,14 +1,22 @@
 import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import failureAnimation from '../../assets/Animation - 1743139931344.json'
 import Lottie from 'lottie-react'
 import './PaymentFailure.css'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const PaymentFailure = ({setListItem}) => {
 
     const navigate = useNavigate()
+    const location = useLocation();
 
     useEffect(() => {
+        if(!location.state?.orderId){
+            toast.error("Not allowed.")
+            navigate('/')
+            return
+        }
         setListItem(false)
     }, [])
 

@@ -26,12 +26,15 @@ const Home = ({setListItem}) => {
     }
 
     const handleClick = (item) => {
-        navigate('/order', {state: {item}})
+        localStorage.setItem('packageId', item._id)
+        navigate('/order')
+        window.scrollTo(0,0)
     }
 
     useEffect(() => {
         setListItem(true)
         fetchData()
+        localStorage.removeItem('packageId')
     }, [])
 
     // console.log(cardData);

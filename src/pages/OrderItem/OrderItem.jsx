@@ -18,10 +18,10 @@ const OrderItem = ({setListItem}) => {
         mobile: '',
         noOfTicketsBooked: ''
     })
+    const [data, setData] = useState({})
     const url = import.meta.env.VITE_BACKEND_URL 
     const key = import.meta.env.VITE_RAZORPAY_KEY_ID
-    const location = useLocation()
-    const data = location.state?.item 
+    const location = useLocation() 
     const [isOtpSend, setIsOtpSend] = useState(false)
     const [otp, setOtp] = useState('')
     const navigate = useNavigate()
@@ -97,9 +97,8 @@ const OrderItem = ({setListItem}) => {
                             navigate('/payment-success', {state: {orderId: response.razorpay_order_id}})
                         } else{
                             toast.error(verifyData.msg)
-                            navigate('/payment-failure')
+                            navigate('/payment-failure', {state : {msg: "Some error occured"}})
                         }
-                        
                     },
                     prefill: {
                         name: userData.name,
@@ -174,8 +173,33 @@ const OrderItem = ({setListItem}) => {
         }
     }
     console.log(data);
+
+    const fetchData = async(id) => {
+        try {
+            const res = await fetch(url+'/api/v1/package/package-details', {
+                method: "POST",
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify({packageId: id})
+            })
+            const result = await res.json()
+            if(!result.success){
+                toast.error("No data found.")
+                navigate('/')
+                return 
+            }
+            setData(result.msg)
+        } catch (error) {
+            console.log(error);
+        }
+    }
     
     useEffect(()=>{
+        if(!localStorage.getItem('packageId')){
+            toast.info('Please select some Package.')
+            navigate('/')
+            return 
+        }
+        fetchData(localStorage.getItem('packageId'))
         setListItem(false)
     }, [])
 
